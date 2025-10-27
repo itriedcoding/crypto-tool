@@ -1,0 +1,14 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Logs and runtime
+logs/
+var/
+miners/xmrig/*
+miners/cpuminer-opt/*
+miners/cpuminer-opt-src/
+
+# OS files
+.DS_Store

@@ -1,0 +1,4 @@
+# Deny access to config directory if served under the same root
+<FilesMatch "config\.yaml|config\.example\.yaml">
+  Require all denied
+</FilesMatch>
