@@ -1,0 +1,52 @@
+# Advanced Multi-Language Crypto Mining Suite - Example Configuration
+
+api:
+  port: 8765
+  host: 0.0.0.0
+  api_key: "change-me-32chars-min"
+
+telemetry:
+  enable_system_metrics: true
+  metrics_interval_sec: 10
+  retain_hours: 72
+
+miners:
+  - id: "xmrig-1"
+    type: "xmrig"
+    enabled: true
+    executable: "miners/xmrig/xmrig"
+    env: {}
+    algo: "rx/0"    # monero
+    pool_url: "pool.supportxmr.com:3333"
+    wallet: "YOUR_WALLET_ADDRESS"
+    password: "x"
+    threads: auto
+    donate_level: 1
+    nice: 10
+    cpu_affinity: []
+    extra_args: []
+
+  - id: "cpuminer-1"
+    type: "cpuminer-opt"
+    enabled: false
+    executable: "miners/cpuminer-opt/cpuminer"
+    env: {}
+    algo: "yescrypt"
+    pool_url: "stratum+tcp://POOL:PORT"
+    wallet: "YOUR_WALLET_ADDRESS.WORKER"
+    password: "x"
+    threads: auto
+    nice: 10
+    cpu_affinity: []
+    extra_args: []
+
+scheduling:
+  autoswitch: false
+  autoswitch_interval_sec: 600
+  cpu_limit_percent: 95
+
+logging:
+  level: "INFO"
+  directory: "logs/miners"
+  rotate_mb: 50
+  keep: 10
